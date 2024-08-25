@@ -6,7 +6,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import MenuList from "./MenuList";
 
 export default function MenuRoute() {
-  const image = require("../assets/Cache42foodpic1.jpg");
+  const image = "";
   return (
     <ImageBackground source={image} resizeMode="cover" style={styles.image}>
       <View style={styles.container}>
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: "white",
-    fontSize: 20,
+    fontSize: 35,
     top: 85,
     fontWeight: "bold",
     textAlign: "center",
