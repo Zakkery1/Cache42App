@@ -1,6 +1,6 @@
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Dimensions } from "react-native";
 
 const INITIAL_REGION = {
   latitude: 35.14764931924913,
@@ -8,15 +8,17 @@ const INITIAL_REGION = {
   latitudeDelta: 2,
   longitudeDelta: 2,
 };
+const windowWidth = Dimensions.get("window").width;
 
 export default function LocationsRoute() {
   return (
-    <View style={styles.map}>
+    <View style={styles.container}>
       <MapView
         style={StyleSheet.absoluteFill}
         provider={PROVIDER_GOOGLE}
         initialRegion={INITIAL_REGION}
-        // showsMyLocationButton={}
+        showsUserLocation
+        showsMyLocationButton={true}
       />
     </View>
   );
@@ -26,7 +28,7 @@ const styles = StyleSheet.create({
   container: {
     ...StyleSheet.absoluteFillObject,
     height: 400,
-    width: 400,
+    width: windowWidth,
     justifyContent: "flex-end",
     alignItems: "center",
   },

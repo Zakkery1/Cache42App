@@ -8,7 +8,12 @@ import LocationsRoute from "./Routes/Location";
 
 const image = require("./assets/cache.webp");
 const HomeRoute = () => (
-  <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+  <ImageBackground
+    source={image}
+    resizeMode="contain"
+    style={styles.image}
+    backgroundColor={"black"}
+  >
     <View style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="#ffffff" />
       <Image
@@ -17,28 +22,14 @@ const HomeRoute = () => (
           uri: "https://static.wixstatic.com/media/de49ba_6b0e5f6b8af64dac9b81d7f809833d98~mv2.png/v1/fill/w_210,h_174,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/de49ba_6b0e5f6b8af64dac9b81d7f809833d98~mv2.png",
         }}
       />
-      <Text style={styles.text}>Welcome to Cache42</Text>
+      {/* <Text style={styles.text}>Welcome to Cache42</Text> */}
     </View>
   </ImageBackground>
 );
 
 const MenuR = () => <MenuRoute />;
 
-const LocationsR = () => (
-  // <ImageBackground source={image} resizeMode="cover" style={styles.image}>
-  //   <View style={styles.container}>
-  //     <StatusBar barStyle="dark-content" backgroundColor="#ffffff" />
-  //     <Image
-  //       style={styles.tinyLogo}
-  //       source={{
-  //         uri: "https://static.wixstatic.com/media/de49ba_6b0e5f6b8af64dac9b81d7f809833d98~mv2.png/v1/fill/w_210,h_174,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/de49ba_6b0e5f6b8af64dac9b81d7f809833d98~mv2.png",
-  //       }}
-  //     />
-  //     <Text style={styles.text}>Welcome to Cache42</Text>
-  //   </View>
-  // </ImageBackground>
-  <LocationsRoute />
-);
+const LocationsR = () => <LocationsRoute />;
 
 export default function App() {
   const [index, setIndex] = React.useState(0);
@@ -82,6 +73,8 @@ const styles = StyleSheet.create({
   image: {
     zIndex: 0,
     flex: 1,
+    // height: 200,
+    // width: Dimensions.get("window").width,
     resizeMode: "cover",
     justifyContent: "center",
   },
