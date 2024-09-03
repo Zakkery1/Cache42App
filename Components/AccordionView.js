@@ -17,16 +17,20 @@ const windowWidth = Dimensions.get("window").width;
 const SECTIONS = [
   {
     title: "Small Plates",
-    content: `Lobster Queso with warm chips - $20\n
-              Char Grilled Oysters - $22\n
-              Smoked Wings (Bourbon Glazed, Cajun Dusted, Buffalo) - $18\n
-              Bourbon Lollipop Lamb - $35\n
-              OxTail Egg Rolls - $22\n
-              Lobster Menage (3 Cold Water Tails 3 Ways - Grilled, Fried, and Stuffed, served with 3 sauces) - $51\n
-              Jumbo Fried Shrimp (Served with double dipping sauces) - $22\n
-              Lobster Queso Fries (House-made fries with a jalapeño queso and warm butter-poached lobster) - $21\n
-              Jumbo Shrimp Cocktail (Jumbo prawns served with cocktail and spicy remoulade) - $20\n
-              Buffalo Egg Rolls - $20`,
+    content: `
+    Lobster Queso with warm chips - $20\n
+    Char Grilled Oysters - $22\n
+    Smoked Wings (Bourbon Glazed, Cajun Dusted, Buffalo) - $18\n
+    Bourbon Lollipop Lamb - $35\n
+    OxTail Egg Rolls - $22\n
+    Lobster Menage (3 Cold Water Tails 3 Ways - Grilled, Fried, and 
+    Stuffed, served with 3 sauces) - $51\n
+    Jumbo Fried Shrimp (Served with double dipping sauces) - $22\n
+    Lobster Queso Fries (House-made fries with a jalapeño queso 
+    and warm butter-poached lobster) - $21\n
+    Jumbo Shrimp Cocktail (Jumbo prawns served with cocktail and 
+    spicy remoulade) - $20\n
+    Buffalo Egg Rolls - $20`,
     image: require("../assets/Cache42foodpic1.jpg"),
   },
   {
@@ -43,7 +47,8 @@ const SECTIONS = [
     content: `
       40oz Prime Tomahawk - $135\n
       Golden Rack Of Lamb - Market Price\n
-      Surf And Turf (8oz Filet Mignon with a delicious grilled lobster tail served with melted garlic butter and lemon) - $68\n
+      Surf And Turf (8oz Filet Mignon with a delicious grilled lobster 
+      tail served with melted garlic butter and lemon) - $68\n
       Cajun NY Strip with Shrimp - $55`,
     image: require("../assets/Cache42foodpic3.jpg"),
   },
@@ -52,7 +57,8 @@ const SECTIONS = [
     content: `
       Jamaican Oxtails Over Rice - $38\n
       King Salmon And Shrimp - $42\n
-      Cache Cajun Pasta (Options: Shrimp, Chicken, Lamb, Lobster, Salmon) - $28`,
+      Cache Cajun Pasta (Options: Shrimp, Chicken, Lamb, Lobster, 
+      Salmon) - $28`,
     image: require("../assets/Cache42foodpic4.jpg"),
   },
   {
@@ -130,6 +136,7 @@ export default class AccordionView extends Component {
   render() {
     return (
       <ScrollView>
+        <Text>Menu</Text>
         <Accordion
           sections={SECTIONS}
           activeSections={this.state.activeSections}
@@ -146,8 +153,9 @@ export default class AccordionView extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F5FCFF",
+    backgroundColor: "#fff",
     paddingTop: Constants.statusBarHeight,
+    // paddingTop: 100,
   },
   title: {
     textAlign: "center",
@@ -156,10 +164,10 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   header: {
-    backgroundColor: "#F5FCFF",
+    backgroundColor: "#fff",
     padding: 10,
     // borderWidth: 3,
-    top: 20,
+    // top: 20,
   },
   headerText: {
     textAlign: "center",
@@ -167,8 +175,8 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
   content: {
-    padding: 20,
-    backgroundColor: "#fff",
+    padding: 15,
+    // backgroundColor: "#fff",
   },
   active: {
     backgroundColor: "rgba(255,255,255,1)",
@@ -182,7 +190,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   selector: {
-    backgroundColor: "#F5FCFF",
+    backgroundColor: "#fff",
     padding: 10,
   },
   activeSelector: {

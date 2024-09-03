@@ -4,9 +4,10 @@ import * as React from "react";
 import { BottomNavigation, Text } from "react-native-paper";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import MenuRoute from "./Routes/Menu";
+import LocationsRoute from "./Routes/Location";
 
-const image = require("./assets/1000_F_324727233_GwGkDp3eOeEIETimy5wbSp2983GLrkwy.jpg");
-const CartRoute = () => (
+const image = require("./assets/cache.webp");
+const HomeRoute = () => (
   <ImageBackground source={image} resizeMode="cover" style={styles.image}>
     <View style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="#ffffff" />
@@ -24,58 +25,37 @@ const CartRoute = () => (
 const MenuR = () => <MenuRoute />;
 
 const LocationsR = () => (
-  <ImageBackground source={image} resizeMode="cover" style={styles.image}>
-    <View style={styles.container}>
-      <StatusBar barStyle="dark-content" backgroundColor="#ffffff" />
-      <Image
-        style={styles.tinyLogo}
-        source={{
-          uri: "https://static.wixstatic.com/media/de49ba_6b0e5f6b8af64dac9b81d7f809833d98~mv2.png/v1/fill/w_210,h_174,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/de49ba_6b0e5f6b8af64dac9b81d7f809833d98~mv2.png",
-        }}
-      />
-      <Text style={styles.text}>Welcome to Cache42</Text>
-    </View>
-  </ImageBackground>
-);
-
-const NotificationsRoute = () => (
-  <ImageBackground source={image} resizeMode="cover" style={styles.image}>
-    <View style={styles.container}>
-      <StatusBar barStyle="dark-content" backgroundColor="#ffffff" />
-      <Image
-        style={styles.tinyLogo}
-        source={{
-          uri: "https://static.wixstatic.com/media/de49ba_6b0e5f6b8af64dac9b81d7f809833d98~mv2.png/v1/fill/w_210,h_174,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/de49ba_6b0e5f6b8af64dac9b81d7f809833d98~mv2.png",
-        }}
-      />
-      <Text style={styles.text}>Welcome to Cache42</Text>
-    </View>
-  </ImageBackground>
+  // <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+  //   <View style={styles.container}>
+  //     <StatusBar barStyle="dark-content" backgroundColor="#ffffff" />
+  //     <Image
+  //       style={styles.tinyLogo}
+  //       source={{
+  //         uri: "https://static.wixstatic.com/media/de49ba_6b0e5f6b8af64dac9b81d7f809833d98~mv2.png/v1/fill/w_210,h_174,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/de49ba_6b0e5f6b8af64dac9b81d7f809833d98~mv2.png",
+  //       }}
+  //     />
+  //     <Text style={styles.text}>Welcome to Cache42</Text>
+  //   </View>
+  // </ImageBackground>
+  <LocationsRoute />
 );
 
 export default function App() {
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
     {
-      key: "cart",
-      title: "Cart",
-      focusedIcon: "cart",
-      unfocusedIcon: "cart-outline",
+      key: "home",
+      title: "Home",
+      focusedIcon: "home",
+      unfocusedIcon: "home-outline",
     },
     { key: "menu", title: "Menu", focusedIcon: "book-open-page-variant" },
     { key: "location", title: "Locations", focusedIcon: "history" },
-    {
-      key: "notifications",
-      title: "Notifications",
-      focusedIcon: "bell",
-      unfocusedIcon: "bell-outline",
-    },
   ]);
   const renderScene = BottomNavigation.SceneMap({
-    cart: CartRoute,
+    home: HomeRoute,
     menu: MenuR,
     location: LocationsR,
-    notifications: NotificationsRoute,
   });
 
   return (
@@ -86,6 +66,8 @@ export default function App() {
           navigationState={{ index, routes }}
           onIndexChange={setIndex}
           renderScene={renderScene}
+          barStyle={{ backgroundColor: "rgba(2, 2, 2, 0.8)" }}
+          theme={{ colors: { secondaryContainer: "white" } }}
         />
       </View>
     </SafeAreaProvider>
