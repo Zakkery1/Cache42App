@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 import {
-  Switch,
   ScrollView,
   StyleSheet,
   Text,
   View,
-  TouchableOpacity,
-  Image,
   Dimensions,
   ImageBackground,
 } from "react-native";
@@ -111,7 +108,6 @@ export default class AccordionView extends Component {
   _renderHeader = (section) => {
     return (
       <View style={styles.header}>
-        {/* <Text style={styles.headerText}>{section.title}</Text> */}
         <Text style={styles.headerText}>{section.title}</Text>
         <ImageBackground
           style={{ height: 70, maxWidth: windowWidth }}
@@ -124,7 +120,7 @@ export default class AccordionView extends Component {
   _renderContent = (section) => {
     return (
       <View style={styles.content}>
-        <Text>{section.content}</Text>
+        <Text style={styles.contentText}>{section.content}</Text>
       </View>
     );
   };
@@ -153,30 +149,33 @@ export default class AccordionView extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "black",
     paddingTop: Constants.statusBarHeight,
-    // paddingTop: 100,
   },
   title: {
     textAlign: "center",
     fontSize: 22,
     fontWeight: "300",
     marginBottom: 20,
+    color: "white",
   },
   header: {
-    backgroundColor: "#fff",
+    backgroundColor: "black",
     padding: 10,
-    // borderWidth: 3,
-    // top: 20,
   },
   headerText: {
     textAlign: "center",
     fontSize: 20,
     fontWeight: "500",
+    color: "white",
   },
   content: {
     padding: 15,
-    // backgroundColor: "#fff",
+    backgroundColor: "black",
+  },
+  contentText: {
+    color: "white",
+    textAlign: "center",
   },
   active: {
     backgroundColor: "rgba(255,255,255,1)",
