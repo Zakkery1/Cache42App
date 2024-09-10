@@ -1,5 +1,13 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View, ImageBackground, Image, Button } from "react-native";
+import {
+  StyleSheet,
+  View,
+  ImageBackground,
+  Image,
+  Button,
+  TouchableOpacity,
+  Text,
+} from "react-native";
 import * as React from "react";
 
 // Render the home page
@@ -20,15 +28,10 @@ export default function HomeRoute() {
             uri: "https://static.wixstatic.com/media/de49ba_6b0e5f6b8af64dac9b81d7f809833d98~mv2.png/v1/fill/w_210,h_174,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/de49ba_6b0e5f6b8af64dac9b81d7f809833d98~mv2.png",
           }}
         />
-        {/* <Text style={styles.text}>Welcome to Cache42</Text> */}
       </View>
-      <Button
-        styles={styles.button}
-        // onPress={onPressLearnMore}
-        title="Book Now"
-        color="red"
-        accessibilityLabel="Learn more about this purple button"
-      />
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>Book Now</Text>
+      </TouchableOpacity>
     </ImageBackground>
   );
 }
@@ -61,7 +64,18 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 20,
   },
+  buttonText: {
+    fontSize: 18,
+    color: "#fff",
+    fontWeight: "bold",
+    alignSelf: "center",
+    textTransform: "uppercase",
+  },
   button: {
+    elevation: 8,
+    backgroundColor: "#ad8533",
     borderRadius: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
   },
 });
