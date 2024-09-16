@@ -36,7 +36,7 @@ export default function LocationsRoute() {
           <Text style={styles.hoursText}>
             Monday - Thursday: 4pm - 11pm {"\n"}
             Friday & Saturday: 4pm - 1am {"\n"}
-            Sunday Closed
+            Sunday: Closed
           </Text>
         </Text>
         <Text style={styles.openingHours}>
@@ -44,7 +44,8 @@ export default function LocationsRoute() {
           {"\n"}
           <Text style={styles.hoursText}>
             901-249-7594{"\n"}
-            4202 Hacks Cross Rd, Memphis TN 38125 Cache42Mem@gmail.com
+            {/* 4202 Hacks Cross Rd, Memphis TN 38125 Cache42Mem@gmail.com */}
+            97 N. Main Street, Memphis Tn 38103
           </Text>
         </Text>
       </View>

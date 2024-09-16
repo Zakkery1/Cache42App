@@ -7,7 +7,7 @@ import LocationsRoute from "./Routes/Location";
 import HomeRoute from "./Routes/Home";
 // import LoginRoute from "./Routes/Login";
 import SignInRoute from "./App/auth/sign-in";
-import { ClerkProvider, ClerkLoaded } from "@clerk/clerk-expo";
+import { ClerkProvider, ClerkLoaded, useAuth } from "@clerk/clerk-expo";
 // import { Slot } from "expo-router";
 
 const image = require("./assets/cache.webp");
