@@ -5,8 +5,14 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import MenuRoute from "./Routes/Menu";
 import LocationsRoute from "./Routes/Location";
 import HomeRoute from "./Routes/Home";
+// import LoginRoute from "./Routes/Login";
+import SignInRoute from "./App/auth/sign-in";
+import { ClerkProvider, ClerkLoaded } from "@clerk/clerk-expo";
+// import { Slot } from "expo-router";
 
 const image = require("./assets/cache.webp");
+const LoginR = () => <SignInRoute />;
+
 const HomeR = () => <HomeRoute />;
 
 const MenuR = () => <MenuRoute />;
@@ -14,6 +20,13 @@ const MenuR = () => <MenuRoute />;
 const LocationsR = () => <LocationsRoute />;
 
 export default function App() {
+  const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY;
+  if (!publishableKey) {
+    throw new Error(
+      "Missing Publishable Key. Please set EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY in your .env"
+    );
+  }
+
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
     {
@@ -23,26 +36,32 @@ export default function App() {
     },
     { key: "menu", title: "Menu", focusedIcon: "book-open-page-variant" },
     { key: "location", title: "Locations", focusedIcon: "map" },
+    { key: "login", title: "logins", focusedIcon: "map" },
   ]);
   const renderScene = BottomNavigation.SceneMap({
+    // login: LoginR,
     home: HomeR,
     menu: MenuR,
     location: LocationsR,
   });
 
   return (
-    <SafeAreaProvider>
-      <View style={styles.container}>
-        <BottomNavigation
-          style={styles.bottomNavigation}
-          navigationState={{ index, routes }}
-          onIndexChange={setIndex}
-          renderScene={renderScene}
-          barStyle={{ backgroundColor: "rgba(2, 2, 2, 0.8)" }}
-          theme={{ colors: { secondaryContainer: "white" } }}
-        />
-      </View>
-    </SafeAreaProvider>
+    <ClerkProvider publishableKey={publishableKey}>
+      <ClerkLoaded>
+        <SafeAreaProvider>
+          <View style={styles.container}>
+            <BottomNavigation
+              style={styles.bottomNavigation}
+              navigationState={{ index, routes }}
+              onIndexChange={setIndex}
+              renderScene={renderScene}
+              barStyle={{ backgroundColor: "rgba(2, 2, 2, 0.8)" }}
+              theme={{ colors: { secondaryContainer: "white" } }}
+            />
+          </View>
+        </SafeAreaProvider>
+      </ClerkLoaded>
+    </ClerkProvider>
   );
 }
 

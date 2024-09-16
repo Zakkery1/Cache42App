@@ -9,8 +9,11 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@clerk/clerk-expo": "^2.2.10",
     "@expo/metro-runtime": "~3.2.3",
     "expo": "~51.0.28",
+    "expo-router": "^3.5.23",
+    "expo-secure-store": "^13.0.2",
     "expo-status-bar": "~1.12.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
